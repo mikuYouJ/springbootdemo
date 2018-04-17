@@ -1,6 +1,7 @@
 package com.sunmoong;
 
 import com.sunmoong.config.AuthorSettings;
+import com.sunmoong.starter.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -22,9 +23,13 @@ public class SpringbootdemoApplication {
 	@Autowired
 	private AuthorSettings authorSettings;
 
+	@Autowired
+	private HelloService helloService;
 	@RequestMapping("/")
 	String index(){
-		return "Hello Spring Boot"+ bookAuthor+":"+bookName+"and author age is "+ authorSettings.getAge();
+
+//		return "Hello Spring Boot"+ bookAuthor+":"+bookName+"and author age is "+ authorSettings.getAge();
+		return helloService.sayHello();
 	}
 
 
